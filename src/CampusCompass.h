@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
-
+#include "Graph.cpp"
+#include "CommandProcessor.cpp"
+#include "StudentManager.cpp"
 using namespace std;
 
 class CampusCompass {
@@ -12,4 +14,7 @@ public:
     CampusCompass(); // constructor
     bool ParseCSV(const string &edges_filepath, const string &classes_filepath);
     bool ParseCommand(const string &command);
+    Graph graph; 
+    StudentManager students; 
+    CommanProcessor commands; 
 };
