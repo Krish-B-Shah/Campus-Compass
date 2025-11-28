@@ -1,7 +1,7 @@
+#pragma once
 #include <iostream> 
 #include <unordered_map>
 #include <vector>
-# pragma once
 using namespace std; 
 
 
@@ -13,13 +13,17 @@ struct Edge{
     bool closed_for_construction; // Checks whether its closed for the constrcution or its not. 
 };
 
-class graph{
+class Graph{
     private: 
-        unordered_map<int, vector<Edge>> adj; // this helps store each id with corresponding data. 
+        unordered_map<int, vector<Edge>> adj;
     public: 
-        // SO there is a point what do we need to get? 
-        // each point has unique ID. SO we need to count how many edges are there from a certain ID or point.
+        Graph();
         int count_connected_edge(int ID); 
-        void insert_edge(int id, Edge e); 
+        void insert_edge(int id, Edge e);
+        void toggleEdgeClosure(int from, int to);
+        string checkEdgeStatus(int from, int to);
+        bool isConnected(int from, int to);
+        int shortestPath(int from, int to, vector<int>& path);
+        int calculateMST(const vector<int>& vertices);
 };
 
